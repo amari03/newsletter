@@ -10,6 +10,16 @@ import (
 func home(w http.ResponseWriter, r *http.Request) {
     w.Write([]byte("Hello from newsletter"))
 }
+
+func about(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("this is the about page"))
+}
+
+func signup(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("this is the signup page"))
+}
+
+
 func main() {
 
     // mux is our router (multiplexer)
@@ -17,6 +27,8 @@ func main() {
 
     // the route pattern/endpoint/URL path
     mux.HandleFunc("/", home)
+    mux.HandleFunc("/about", about)
+    mux.HandleFunc("/signup", signup)
 
     
     // start a local web server
